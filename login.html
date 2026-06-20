@@ -15,10 +15,11 @@
     <div class="logo"><i class="fas fa-ghost"></i> PHANTOMS</div>
     <ul>
         <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="register.html">تسجيل</a></li>
-        <li><a href="login.html" class="active">دخول</a></li>
+        <li class="nav-guest"><a href="register.html">تسجيل</a></li>
+        <li class="nav-guest"><a href="login.html" class="active">دخول</a></li>
         <li><a href="dashboard.html">لوحة العضو</a></li>
-        <li class="nav-cta-li"><a href="register.html" class="nav-cta">انضم إلينا</a></li>
+        <li class="nav-guest nav-cta-li"><a href="register.html" class="nav-cta">انضم إلينا</a></li>
+        <li class="nav-user" style="display:none;"><a href="#" id="navLogout" style="color:#ef4444;"><i class="fas fa-right-from-bracket"></i> <span class="nav-user-name"></span></a></li>
     </ul>
     <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
 </nav>
