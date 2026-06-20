@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHANTOMS | لوحة التحكم</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin-body">
+
+<div class="admin-layout">
+
+    <aside class="admin-sidebar" id="adminSidebar">
+        <div class="logo"><i class="fas fa-ghost"></i> Phantoms</div>
+        <nav>
+            <a href="#!" class="active" data-section="overview"><i class="fas fa-chart-simple"></i> نظرة عامة</a>
+            <a href="#!" data-section="applications"><i class="fas fa-file-pen"></i> طلبات التقديم</a>
+            <a href="#!" data-section="members"><i class="fas fa-users"></i> الأعضاء</a>
+            <a href="#!" data-section="settings"><i class="fas fa-gear"></i> الإعدادات</a>
+        </nav>
+        <div class="spacer"></div>
+        <button class="logout-btn" id="adminLogout"><i class="fas fa-right-from-bracket"></i> تسجيل خروج</button>
+    </aside>
+
+    <button class="admin-mobile-toggle" id="adminMenuToggle"><i class="fas fa-bars"></i></button>
+
+    <main class="admin-main">
+
+        <div class="admin-header">
+            <h1>لوحة <span class="gradient">التحكم</span></h1>
+            <div class="admin-badge">
+                <div class="avatar">A</div>
+                <span>Admin</span>
+            </div>
+        </div>
+
+        <!-- Overview -->
+        <div class="admin-section" id="section-overview">
+            <div class="admin-cards" id="adminStats">
+                <div class="admin-card ac-purple">
+                    <div class="ac-icon"><i class="fas fa-clock"></i></div>
+                    <div class="ac-num" id="statTotal">0</div>
+                    <div class="ac-label">إجمالي الطلبات</div>
+                </div>
+                <div class="admin-card ac-yellow">
+                    <div class="ac-icon"><i class="fas fa-hourglass"></i></div>
+                    <div class="ac-num" id="statPending">0</div>
+                    <div class="ac-label">معلق</div>
+                </div>
+                <div class="admin-card ac-green">
+                    <div class="ac-icon"><i class="fas fa-check"></i></div>
+                    <div class="ac-num" id="statAccepted">0</div>
+                    <div class="ac-label">مقبول</div>
+                </div>
+                <div class="admin-card ac-red">
+                    <div class="ac-icon"><i class="fas fa-times"></i></div>
+                    <div class="ac-num" id="statRejected">0</div>
+                    <div class="ac-label">مرفوض</div>
+                </div>
+                <div class="admin-card ac-cyan">
+                    <div class="ac-icon"><i class="fas fa-users"></i></div>
+                    <div class="ac-num" id="statUsers">0</div>
+                    <div class="ac-label">الأعضاء المسجلين</div>
+                </div>
+            </div>
+
+            <div class="admin-section-title">آخر الطلبات</div>
+            <div class="admin-table-wrapper">
+                <div id="recentApps">
+                    <div class="empty-state"><i class="fas fa-inbox"></i><p>لا توجد طلبات</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Applications -->
+        <div class="admin-section" id="section-applications" style="display:none;">
+            <div class="admin-section-title">
+                <span>جميع الطلبات</span>
+                <div class="tabs">
+                    <button class="tab active" data-filter="all">الكل</button>
+                    <button class="tab" data-filter="pending">معلق</button>
+                    <button class="tab" data-filter="accepted">مقبول</button>
+                    <button class="tab" data-filter="rejected">مرفوض</button>
+                </div>
+            </div>
+            <div class="admin-table-wrapper">
+                <div id="allAppsContainer">
+                    <div class="empty-state"><i class="fas fa-inbox"></i><p>لا توجد طلبات</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Members -->
+        <div class="admin-section" id="section-members" style="display:none;">
+            <div class="admin-section-title">الأعضاء المسجلين</div>
+            <div class="admin-table-wrapper">
+                <div id="membersContainer">
+                    <div class="empty-state"><i class="fas fa-users"></i><p>لا يوجد أعضاء</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings -->
+        <div class="admin-section" id="section-settings" style="display:none;">
+            <div class="admin-section-title">الإعدادات</div>
+            <div class="form-wrapper" style="max-width:500px;margin:0;">
+                <div class="form-logo" style="font-size:16px;"><i class="fas fa-toggle-on"></i> التحكم في التقديم</div>
+                <p class="form-subtitle">التحكم بحالة استقبال طلبات التقديم</p>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;background:rgba(168,85,247,0.03);border-radius:12px;border:1px solid rgba(168,85,247,0.08);margin-bottom:20px;">
+                    <span style="font-weight:600;font-size:14px;"><i class="fas fa-door-open"></i> فتح التقديم</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="appToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <p style="color:#8870a0;font-size:13px;" id="toggleStatus">حالة التقديم: <strong style="color:#4ade80;">مفتوح</strong></p>
+
+                <hr style="border:none;border-top:1px solid rgba(168,85,247,0.06);margin:24px 0;">
+
+                <div class="form-logo" style="font-size:16px;"><i class="fas fa-key"></i> بيانات الدخول</div>
+                <p class="form-subtitle">تغيير كلمة مرور المسؤول</p>
+                <form id="adminSettingsForm">
+                    <div class="form-group">
+                        <label>اسم المسؤول</label>
+                        <input type="text" id="adminNewUser" value="admin">
+                    </div>
+                    <div class="form-group">
+                        <label>كلمة المرور الجديدة</label>
+                        <input type="text" id="adminNewPass" value="PhantomsAdmin2026">
+                    </div>
+                    <button type="submit" class="form-submit"><i class="fas fa-save"></i> حفظ</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHANTOMS | إنشاء حساب</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="particles-canvas"></canvas>
+
+<nav>
+    <div class="logo"><i class="fas fa-ghost"></i> PHANTOMS</div>
+    <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="register.html" class="active">تسجيل</a></li>
+        <li><a href="login.html">دخول</a></li>
+        <li><a href="dashboard.html">لوحة العضو</a></li>
+        <li class="nav-cta-li"><a href="register.html" class="nav-cta">انضم إلينا</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+</nav>
+
+<div class="page-hero">
+    <div class="hero-content" style="padding: 20px;">
+        <div class="hero-badge"><i class="fas fa-user-plus"></i> حساب جديد</div>
+        <h1 style="font-family:'Orbitron',monospace;font-size:36px;letter-spacing:2px;text-transform:uppercase;">
+            إنشاء <span class="gradient">حساب</span>
+        </h1>
+    </div>
+</div>
+
+<section style="padding-top:0;">
+    <div class="form-wrapper">
+        <div class="form-logo"><i class="fas fa-ghost"></i> PHANTOMS</div>
+        <p class="form-subtitle">أنشئ حسابك لبدء رحلة الانضمام إلى العصابة</p>
+        <div class="form-error" id="registerError"></div>
+        <form id="registerForm">
+            <div class="form-group">
+                <label>اسم المستخدم <span class="required">*</span></label>
+                <input type="text" id="regUsername" placeholder="اختر اسم مستخدم" required>
+            </div>
+            <div class="form-group">
+                <label>البريد الإلكتروني <span class="required">*</span></label>
+                <input type="email" id="regEmail" placeholder="example@mail.com" required>
+            </div>
+            <div class="form-group">
+                <label>كلمة المرور <span class="required">*</span></label>
+                <input type="password" id="regPassword" placeholder="كلمة المرور" required>
+            </div>
+            <div class="form-group">
+                <label>تأكيد كلمة المرور <span class="required">*</span></label>
+                <input type="password" id="regConfirm" placeholder="أعد إدخال كلمة المرور" required>
+            </div>
+            <button type="submit" class="form-submit" id="registerBtn"><i class="fas fa-user-plus"></i> إنشاء الحساب</button>
+        </form>
+        <div class="form-footer">
+            عندك حساب؟ <a href="login.html">سجل دخول</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-logo"><i class="fas fa-ghost"></i> PHANTOMS</div>
+    <p>حيث القوة تلتقي بالولاء — عصابة الفانتوم</p>
+    <div class="footer-links">
+        <a href="index.html">الرئيسية</a>
+        <a href="register.html">تسجيل</a>
+        <a href="login.html">دخول</a>
+    </div>
+    <p class="copyright">&copy; 2026 PHANTOMS</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/main.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>
