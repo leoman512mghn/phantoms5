@@ -45,7 +45,6 @@
     }
 
     for (let i = 0; i < 80; i++) particles.push(new Particle());
-
     document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
 
     function animate() {
@@ -62,6 +61,31 @@
     const menu = document.querySelector('nav ul');
     if (btn && menu) {
         btn.addEventListener('click', () => menu.classList.toggle('open'));
+    }
+})();
+
+// ===== Nav Logout =====
+document.addEventListener('click', (e) => {
+    if (e.target.closest('#navLogout')) {
+        e.preventDefault();
+        localStorage.removeItem('phantoms_logged_in');
+        window.location.reload();
+    }
+});
+
+// ===== Nav Auth State =====
+(function() {
+    const userId = localStorage.getItem('phantoms_logged_in');
+    document.querySelectorAll('.nav-guest').forEach(el => el.style.display = userId ? 'none' : '');
+    document.querySelectorAll('.nav-user').forEach(el => el.style.display = userId ? '' : 'none');
+
+    if (userId) {
+        let users = [];
+        try { users = JSON.parse(localStorage.getItem('phantoms_users')) || []; } catch {}
+        const user = users.find(u => u.id === userId);
+        if (user) {
+            document.querySelectorAll('.nav-user-name').forEach(el => el.textContent = user.username);
+        }
     }
 })();
 
